@@ -58,3 +58,11 @@ hs_err_pid*
 # junk files #
 ##############
 test.txt
+.mvn/
+gradlew.bat
+gradlew
+mvnw
+mvnw.cmd
+.classpath
+.project
+.settings/
