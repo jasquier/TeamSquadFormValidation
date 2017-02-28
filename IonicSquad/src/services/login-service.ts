@@ -6,7 +6,7 @@ export class LoginService{
     public data:any;
     public loginStatus: string;
     constructor(private  http:Http){}
-    str1:string = "http://127.0.0.1:8080/login?name=";
+    str1:string = "127.0.0.1:8080/login?name=";
     
 
     getLoginStatus(username:any, password:any){
