@@ -9,12 +9,19 @@ import { LoginService } from '../../services/login-service';
 })
 
 export class HomePage {
-  public username:any;
-  public password:any;
-//public status:string="INVALID";
-  constructor(public navCtrl: NavController, public loginService: LoginService) {
-  this.loginService.getLoginStatus(this.username,this.password); 
-}
+    public username:any = "user";
+    public password:any = "0000";
+    //public status:string="INVALID";
+    constructor(public navCtrl: NavController, public loginService: LoginService) {
+        //this.loginService.getLoginStatus("######", "00000"); 
+        //this.getStatus();
+    }
 
+    getStatus(){
+      this.loginService.getLoginStatus(this.username, this.password);
+      console.log(this.password);
+      console.log(this.username);
+      
+    }
 
 }

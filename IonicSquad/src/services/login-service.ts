@@ -6,27 +6,16 @@ export class LoginService{
     public data:any;
     public loginStatus: string;
     constructor(private  http:Http){}
+    str1:string = "http://127.0.0.1:8080/login?name=";
+    
 
     getLoginStatus(username:any, password:any){
-        this.http.get(`http://localhost:8080/login?name= + ${username} + &pw= + ${password}`).subscribe(res => {
+        this.http.get(this.str1+username+"&pw="+password).subscribe(res => {
             this.data = res.json();
-            this.loginStatus = this.data.status;
+            this.loginStatus = this.data.isPassWordValid;
         }, error => {
             console.log(error);
         });
     }
    
 }
-
-
-
-
-
-    // getLoginStatus(username:any, password:any){
-    //     this.http.get(`http://localhost:8080/login?name= + ${username} + &pw= + ${password}`).subscribe(res => {
-    //         this.data = res.json();
-    //         this.loginStatus = this.data.status;
-    //     }, error => {
-    //         console.log(error);
-    //     });
-    // }
