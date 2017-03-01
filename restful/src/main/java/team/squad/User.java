@@ -7,8 +7,8 @@ import java.util.HashMap;
  */
 public class User {
 
-    private final String name;
-    private final String password;
+    private String name;
+    private String password;
 
     private HashMap<String, String> logins = new HashMap<String, String>() {{
         put("Andres", "123");
@@ -23,6 +23,14 @@ public class User {
 
     public User(String name, String password) {
         this.name = name;
+        this.password = password;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPassWord(String password) {
         this.password = password;
     }
 
