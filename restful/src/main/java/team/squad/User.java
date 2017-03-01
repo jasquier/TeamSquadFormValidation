@@ -32,15 +32,13 @@ public class User {
     }
 
     public Boolean getIsPasswordValid() {
+        boolean result = false;
         if (logins.containsKey(username)) {
             String correctPassword = logins.get(username);
             if (password.equals(correctPassword)) {
-                return true;
+                result = true;
             }
-            return false;
         }
-        else {
-            return false;
-        }
+        return result;
     }
 }
