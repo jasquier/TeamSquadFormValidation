@@ -1,7 +1,6 @@
 package team.squad;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author Team Squad Spring Squad
@@ -9,8 +8,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class Controller {
 
-    @RequestMapping("/login")
-    public User getUserState(String name, String pw) {
-        return new User(name, pw);
+    @CrossOrigin
+    @RequestMapping(value = "/login", method = RequestMethod.POST, consumes = {"application/json"})
+    public @ResponseBody User getUserStateWithPOST(@RequestBody User user) {
+        return user;
     }
 }

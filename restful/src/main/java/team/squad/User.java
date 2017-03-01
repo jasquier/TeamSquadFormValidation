@@ -7,8 +7,8 @@ import java.util.HashMap;
  */
 public class User {
 
-    private final String name;
-    private final String password;
+    private String username;
+    private String password;
 
     private HashMap<String, String> logins = new HashMap<String, String>() {{
         put("Andres", "123");
@@ -21,14 +21,19 @@ public class User {
         put("Milton", "NASA");
     }};
 
-    public User(String name, String password) {
-        this.name = name;
+    public User() { }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setPassword(String password) {
         this.password = password;
     }
 
     public Boolean getIsPasswordValid() {
-        if (logins.containsKey(name)) {
-            String correctPassword = logins.get(name);
+        if (logins.containsKey(username)) {
+            String correctPassword = logins.get(username);
             if (password.equals(correctPassword)) {
                 return true;
             }

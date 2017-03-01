@@ -13,8 +13,12 @@ public class UserTests {
 
     @Before
     public void setup() {
-        goodUser = new User("Andres", "123");
-        badUser = new User("Andres", "notAndresPW");
+        goodUser = new User();
+        goodUser.setUsername("Andres");
+        goodUser.setPassword("123");
+        badUser = new User();
+        badUser.setUsername("Andres");
+        badUser.setPassword("122");
     }
 
     @Test
