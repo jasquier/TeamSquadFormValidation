@@ -10,11 +10,8 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
-
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
 /**
  * @author Team Squad Spring Squad
@@ -28,33 +25,11 @@ public class ControllerTests {
     private MockMvc mockMvc;
 
     @Test
-    public void goodRequestShouldReturnTrue() throws Exception {
-        MockHttpServletRequestBuilder query = get("/login")
-                .param("name", "Andres").param("pw", "123");
-
-        mockMvc.perform(query).andDo(print()).andExpect(jsonPath("$.isPasswordValid").value(true));
-    }
-
-    @Test
-    public void badRequestShouldReturnFalse() throws Exception {
-        MockHttpServletRequestBuilder query = get("/login")
-                .param("name", "Andres").param("pw", "badpw");
-
-        mockMvc.perform(query).andDo(print()).andExpect(jsonPath("$.isPasswordValid").value(false));
-    }
-
-    @Test
     public void goodPostRequestShouldReturnTrue() throws Exception {
-//        MockHttpServletRequestBuilder query = post("/login2")
-//                .contentType(MediaType.APPLICATION_JSON_UTF8)
-//                .param("name", "Andres").param("pw", "123")
-//                .sessionAttr("user", new User());
-
-        MockHttpServletRequestBuilder query = post("/login2")
-                .contentType(MediaType.APPLICATION_JSON_UTF8)
-                .header("testHeader", "headerValue")
-                .content("test body");
-
+        // TODO Figure out how to mock a post request
+        MockHttpServletRequestBuilder query = post("/login")
+                .contentType(MediaType.APPLICATION_JSON)
+                .param("username", "Andres").param("password", "123");
 
         mockMvc.perform(query).andDo(print());
     }

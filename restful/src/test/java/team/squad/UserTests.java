@@ -9,13 +9,16 @@ import org.junit.Test;
  */
 public class UserTests {
 
-    User goodUser, badUser, blankUser;
+    User goodUser, badUser;
 
     @Before
     public void setup() {
-        goodUser = new User("Andres", "123");
-        badUser = new User("Andres", "notAndresPW");
-        blankUser = new User();
+        goodUser = new User();
+        goodUser.setUsername("Andres");
+        goodUser.setPassword("123");
+        badUser = new User();
+        badUser.setUsername("Andres");
+        badUser.setPassword("122");
     }
 
     @Test
@@ -35,18 +38,6 @@ public class UserTests {
         boolean actual = badUser.getIsPasswordValid();
 
         Assert.assertEquals("I don't expect the user:Andres to have the password:notAndresPW",
-                expected, actual);
-    }
-
-    @Test
-    public void confirmBlankUserCanBeSetAndIsValidTest() {
-        boolean expected = true;
-        blankUser.setUsername("Andres");
-        blankUser.setPassword("123");
-
-        boolean actual = blankUser.getIsPasswordValid();
-
-        Assert.assertEquals("I expect the user:Andres to have the password:123",
                 expected, actual);
     }
 }
