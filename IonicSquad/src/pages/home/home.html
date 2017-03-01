@@ -9,7 +9,6 @@
 <ion-content padding>
 
    <ion-list>
-
       <ion-item>
         <ion-label floating>Username</ion-label>
         <ion-input type="text" [(ngModel)]="username"></ion-input>
@@ -19,7 +18,6 @@
         <ion-label floating>Password</ion-label>
         <ion-input type="password" [(ngModel)]="password"></ion-input>
       </ion-item>
-
    </ion-list>
 
    <button ion-button color="secondary" full (click)=getStatus()>Login</button>
@@ -28,5 +26,8 @@
      <ion-card-content>{{loginService.loginStatus}}</ion-card-content>
    </ion-card>
 
-   <img src="assets/profilePic.png">
+   <div class="profileImg">
+    <img src="assets/profilePic.png">
+   </div>
+
 </ion-content>

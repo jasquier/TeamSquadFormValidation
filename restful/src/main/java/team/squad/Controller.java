@@ -1,19 +1,22 @@
 package team.squad;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author Team Squad Spring Squad
- * // TODO use marshalling to allow POST calls instead of GET
  */
 @RestController
 public class Controller {
 
     @CrossOrigin
-    @RequestMapping("/login")
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
     public User getUserState(String name, String pw) {
         return new User(name, pw);
+    }
+
+    @CrossOrigin
+    @RequestMapping(value = "/login2", method = RequestMethod.POST, consumes = {"application/json"})
+    public @ResponseBody User getUserStateWithPOST(@RequestBody User user) {
+        return user;
     }
 }
