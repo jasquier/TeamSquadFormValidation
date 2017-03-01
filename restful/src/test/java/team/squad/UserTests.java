@@ -1,20 +1,20 @@
-package hello;
+package team.squad;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 /**
- * Created by johnsquier on 2/28/17.
+ * @author Team Squad Spring Squad
  */
-public class UserTest {
+public class UserTests {
 
-    private User goodUser, badUser;
+    User goodUser, badUser;
 
     @Before
     public void setup() {
         goodUser = new User("Andres", "123");
-        badUser = new User("Andres", "122");
+        badUser = new User("Andres", "notAndresPW");
     }
 
     @Test
@@ -33,7 +33,7 @@ public class UserTest {
 
         boolean actual = badUser.getIsPasswordValid();
 
-        Assert.assertEquals("I don't expect the user:Andres to have the password:122",
+        Assert.assertEquals("I don't expect the user:Andres to have the password:notAndresPW",
                 expected, actual);
     }
 }

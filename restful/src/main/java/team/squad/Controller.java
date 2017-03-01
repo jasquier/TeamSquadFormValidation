@@ -1,15 +1,16 @@
-package hello;
+package team.squad;
 
-import java.util.concurrent.atomic.AtomicLong;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * @author Team Squad Spring Squad
+ */
 @RestController
-public class ValidationController {
+public class Controller {
 
     @RequestMapping("/login")
-    public User greeting(String name, String pw) {
+    public User getUserState(String name, String pw) {
         return new User(name, pw);
     }
 }

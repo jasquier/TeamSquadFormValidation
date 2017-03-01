@@ -1,7 +1,10 @@
-package hello;
+package team.squad;
 
 import java.util.HashMap;
 
+/**
+ * @author Team Squad Spring Squad
+ */
 public class User {
 
     private final String name;
@@ -28,8 +31,8 @@ public class User {
             String correctPassword = logins.get(name);
             if (password.equals(correctPassword)) {
                 return true;
-        }
-        return false;
+            }
+            return false;
         }
         else {
             return false;
