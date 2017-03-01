@@ -3,10 +3,13 @@ package team.squad;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * @author Team Squad Spring Squad
+ */
 @SpringBootApplication
-public class UservalidationApplication {
+public class Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(UservalidationApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 }
