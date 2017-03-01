@@ -26,7 +26,6 @@ public class ControllerTests {
 
     @Autowired
     private MockMvc mockMvc;
-    private MockHttpSession mockHttp;
 
     @Test
     public void goodRequestShouldReturnTrue() throws Exception {
