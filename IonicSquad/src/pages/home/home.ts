@@ -13,9 +13,7 @@ export class HomePage {
     private username: string;
     private password: string;
 
-    constructor(public navCtrl: NavController, public loginService: LoginService) {
-
-    }
+    constructor(public navCtrl: NavController, public loginService: LoginService) {}
 
     getStatus(){
       this.loginService.getLoginStatus(this.username, this.password);

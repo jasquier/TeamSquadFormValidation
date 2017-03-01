@@ -2,28 +2,25 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 
 @Injectable()
-export class LoginService{
+export class LoginService {
 
-    public data: any;
+    private data: any;
+    private responseData: any;
     private loginStatus: string = "false";
-    private str1: string = "http://127.0.0.1:8080/login?name=";
+    private url: string = "http://127.0.0.1:8080/login";
 
-    constructor(private http: Http){
+    constructor(private http: Http) {}
 
-    }
-
-    getLoginStatus(username: string, password: string){
-        // log the query
-        console.log(this.str1+username+"&pw="+password);
-
-        this.http.get(this.str1+username+"&pw="+password).subscribe(res => {
-            this.data = res.json();
-            this.loginStatus = this.data.isPasswordValid;
-            // log response
-            console.log(this.data);
-        }, error => {
-            console.log(error);
+    getLoginStatus(username: string, password: string) {
+        this.data = {
+            "username": username,
+            "password": password
+        };
+        
+        this.http.post(this.url, this.data).subscribe(response => {
+            this.responseData = response.json();
+            console.log(this.responseData);
+            this.loginStatus = this.responseData.isPasswordValid;
         });
     }
-   
 }
